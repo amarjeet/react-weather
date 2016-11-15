@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 
 module.exports = {
-    entry  : [
+    entry    : [
         'script!jquery/dist/jquery.min.js',
         'script!jquery-migrate/dist/jquery-migrate.min.js',
         'script!foundation-sites/dist/foundation.min.js',
@@ -10,17 +10,17 @@ module.exports = {
     externals: {
         jquery: 'jQuery'
     },
-    plugins: [
+    plugins  : [
         new webpack.ProvidePlugin({
-            '$': 'jquery',
+            '$'     : 'jquery',
             'jQuery': 'jquery'
         })
     ],
-    output : {
+    output   : {
         path    : __dirname,
         filename: './public/bundle.js'
     },
-    resolve: {
+    resolve  : {
         root      : __dirname,
         alias     : {
             Constants     : 'app/constants/constants.js',
@@ -31,7 +31,8 @@ module.exports = {
             About         : 'app/components/About.jsx',
             Examples      : 'app/components/Examples.jsx',
             WeatherForm   : 'app/components/WeatherForm.jsx',
-            WeatherMessage: 'app/components/WeatherMessage.jsx'
+            WeatherMessage: 'app/components/WeatherMessage.jsx',
+            ErrorModal    : 'app/components/ErrorModal.jsx'
         },
         extensions: [
             '',
@@ -39,7 +40,7 @@ module.exports = {
             '.jsx'
         ]
     },
-    module : {
+    module   : {
         loaders: [
             {
                 loader : 'babel-loader',
@@ -51,5 +52,5 @@ module.exports = {
             }
         ]
     },
-    devtool: 'source-map'
+    devtool  : 'source-map'
 };
