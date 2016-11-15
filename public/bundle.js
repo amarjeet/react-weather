@@ -26466,7 +26466,12 @@
 	
 	    onSearch: function onSearch(e) {
 	        e.preventDefault();
-	        console.log('Search not implemented.');
+	        var location = this.refs.search.value;
+	        var encodedLocation = encodeURIComponent(this.refs.search.value);
+	        if (location && location.length > 0) {
+	            this.refs.search.value = '';
+	            window.location.hash = '#/?location=' + encodedLocation;
+	        }
 	    },
 	    render: function render() {
 	        return React.createElement(
@@ -26524,7 +26529,7 @@
 	                        React.createElement(
 	                            'li',
 	                            null,
-	                            React.createElement('input', { type: 'search', placeholder: 'Search Weather' })
+	                            React.createElement('input', { type: 'search', placeholder: 'Search Weather', ref: 'search' })
 	                        ),
 	                        React.createElement(
 	                            'li',
@@ -26568,7 +26573,9 @@
 	        var that = this;
 	        this.setState({
 	            isLoading: true,
-	            errorMessage: undefined
+	            errorMessage: undefined,
+	            location: undefined,
+	            temp: undefined
 	        });
 	        openWeatherMap.getTemp(location).then(function (temp) {
 	            that.setState({
@@ -26584,6 +26591,20 @@
 	                errorMessage: errorMessage.message
 	            });
 	        });
+	    },
+	    componentDidMount: function componentDidMount() {
+	        var location = this.props.location.query.location;
+	        if (location && location.length > 0) {
+	            this.handleSearch(location);
+	            window.location.hash = '#/';
+	        }
+	    },
+	    componentWillReceiveProps: function componentWillReceiveProps(newProps) {
+	        var location = newProps.location.query.location;
+	        if (location && location.length > 0) {
+	            this.handleSearch(location);
+	            window.location.hash = '#/';
+	        }
 	    },
 	    render: function render() {
 	        var _state = this.state,
@@ -26635,6 +26656,9 @@
 	
 	var React = __webpack_require__(10);
 	
+	var _require = __webpack_require__(181),
+	    Link = _require.Link;
+	
 	var WeatherForm = React.createClass({
 	    displayName: 'WeatherForm',
 	
@@ -26654,13 +26678,93 @@
 	            'div',
 	            null,
 	            React.createElement(
-	                'form',
-	                { onSubmit: this.onFormSubmit },
-	                React.createElement('input', { type: 'search', ref: 'location', placeholder: 'Search Weather' }),
+	                'div',
+	                { className: 'row' },
 	                React.createElement(
-	                    'button',
-	                    { className: 'expanded hollow button' },
-	                    'Get Weather'
+	                    'div',
+	                    { className: 'small-6 columns text-center hollow secondary button' },
+	                    React.createElement(
+	                        Link,
+	                        { to: '/?location=Delhi' },
+	                        'Delhi'
+	                    )
+	                ),
+	                React.createElement(
+	                    'div',
+	                    { className: 'small-6 columns text-center hollow secondary button' },
+	                    React.createElement(
+	                        Link,
+	                        { to: '/?location=Jaipur' },
+	                        'Jaipur'
+	                    )
+	                )
+	            ),
+	            React.createElement(
+	                'div',
+	                { className: 'row' },
+	                React.createElement(
+	                    'div',
+	                    { className: 'small-6 columns text-center hollow secondary button' },
+	                    React.createElement(
+	                        Link,
+	                        { to: '/?location=Ranchi' },
+	                        'Ranchi'
+	                    )
+	                ),
+	                React.createElement(
+	                    'div',
+	                    { className: 'small-6 columns text-center hollow secondary button' },
+	                    React.createElement(
+	                        Link,
+	                        { to: '/?location=Rourkela' },
+	                        'Rourkela'
+	                    )
+	                )
+	            ),
+	            React.createElement(
+	                'div',
+	                { className: 'row' },
+	                React.createElement(
+	                    'div',
+	                    { className: 'small-6 columns text-center hollow secondary button' },
+	                    React.createElement(
+	                        Link,
+	                        { to: '/?location=Bhilai' },
+	                        'Bhilai'
+	                    )
+	                ),
+	                React.createElement(
+	                    'div',
+	                    { className: 'small-6 columns text-center hollow secondary button' },
+	                    React.createElement(
+	                        Link,
+	                        { to: '/?location=Hyderabad' },
+	                        'Hyderabad'
+	                    )
+	                )
+	            ),
+	            React.createElement('hr', null),
+	            React.createElement(
+	                'div',
+	                { className: 'row' },
+	                React.createElement(
+	                    'div',
+	                    { className: 'small-12 columns' },
+	                    React.createElement(
+	                        'h3',
+	                        { className: 'text-center' },
+	                        'Or, type city and search.'
+	                    ),
+	                    React.createElement(
+	                        'form',
+	                        { onSubmit: this.onFormSubmit },
+	                        React.createElement('input', { type: 'search', ref: 'location', placeholder: 'Search Weather' }),
+	                        React.createElement(
+	                            'button',
+	                            { className: 'expanded hollow button' },
+	                            'Get Weather'
+	                        )
+	                    )
 	                )
 	            )
 	        );
@@ -28391,8 +28495,8 @@
 	                null,
 	                React.createElement(
 	                    Link,
-	                    { to: '/?location=Goa' },
-	                    'Goa'
+	                    { to: '/?location=Jaipur' },
+	                    'Jaipur'
 	                )
 	            ),
 	            React.createElement(

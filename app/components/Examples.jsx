@@ -13,7 +13,7 @@ const Examples = (props) => {
                     <Link to='/?location=Delhi'>Delhi</Link>
                 </li>
                 <li>
-                    <Link to='/?location=Goa'>Goa</Link>
+                    <Link to='/?location=Jaipur'>Jaipur</Link>
                 </li>
                 <li>
                     <Link to='/?location=Rourkela'>Rourkela</Link>
