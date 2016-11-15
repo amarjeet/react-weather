@@ -126,6 +126,9 @@
 	__webpack_require__(270);
 	$(document).foundation();
 	
+	// App css
+	__webpack_require__(274);
+	
 	ReactDOM.render(React.createElement(
 	    Router,
 	    { history: hashHistory },
@@ -26593,7 +26596,7 @@
 	            if (isLoading) {
 	                return React.createElement(
 	                    'h3',
-	                    { className: 'text-center' },
+	                    { className: 'text-center page-title' },
 	                    'Fetching Weather...'
 	                );
 	            } else if (temp && location) {
@@ -26612,7 +26615,7 @@
 	            null,
 	            React.createElement(
 	                'h1',
-	                { className: 'text-center' },
+	                { className: 'text-center page-title' },
 	                'Get Weather'
 	            ),
 	            React.createElement(WeatherForm, { onSearch: this.handleSearch }),
@@ -26653,7 +26656,7 @@
 	            React.createElement(
 	                'form',
 	                { onSubmit: this.onFormSubmit },
-	                React.createElement('input', { type: 'text', ref: 'location' }),
+	                React.createElement('input', { type: 'search', ref: 'location', placeholder: 'Search Weather' }),
 	                React.createElement(
 	                    'button',
 	                    { className: 'expanded hollow button' },
@@ -28294,7 +28297,7 @@
 	        null,
 	        React.createElement(
 	            "h1",
-	            { className: "text-center" },
+	            { className: "text-center page-title" },
 	            "About"
 	        ),
 	        React.createElement(
@@ -28363,7 +28366,7 @@
 	        null,
 	        React.createElement(
 	            'h1',
-	            { className: 'text-center' },
+	            { className: 'text-center page-title' },
 	            'Examples'
 	        ),
 	        React.createElement(
@@ -28762,6 +28765,46 @@
 		if(oldSrc)
 			URL.revokeObjectURL(oldSrc);
 	}
+
+
+/***/ },
+/* 274 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(275);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(273)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./app.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./app.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 275 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(272)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".page-title {\n    margin-top: 2.5rem;\n    margin-bottom: 2.5rem;\n}\n\ninput[type=search] {\n    box-shadow: none;\n}\n", ""]);
+	
+	// exports
 
 
 /***/ }

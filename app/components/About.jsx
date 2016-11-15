@@ -11,7 +11,7 @@ const React = require('react');
 const About = (props) => {
     return (
         <div>
-            <h1 className="text-center">About</h1>
+            <h1 className="text-center page-title">About</h1>
             <p>Weather example application in React. Based on Udemy course.</p>
             <p>A few tools used were:</p>
             <ul>
