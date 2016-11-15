@@ -26617,7 +26617,7 @@
 	            if (isLoading) {
 	                return React.createElement(
 	                    'h3',
-	                    { className: 'text-center page-title' },
+	                    { className: 'text-center' },
 	                    'Fetching Weather...'
 	                );
 	            } else if (temp && location) {
@@ -26639,8 +26639,8 @@
 	                { className: 'text-center page-title' },
 	                'Get Weather'
 	            ),
-	            React.createElement(WeatherForm, { onSearch: this.handleSearch }),
 	            renderMessage(),
+	            React.createElement(WeatherForm, { onSearch: this.handleSearch }),
 	            renderError()
 	        );
 	    }
