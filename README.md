@@ -1,4 +1,4 @@
-Tute uses the following versions:
+Tutorial uses the following versions:
 
 - webpack global: 1.12.13
 - babel-core: 6.5.1
@@ -11,3 +11,5 @@ Tute uses the following versions:
 - style-loader: 0.13.0
 - jquery: 2.2.1
 - foundation-sites: 6.2.0
+- sass-loader: 3.1.2
+- node-sass: 3.4.2
