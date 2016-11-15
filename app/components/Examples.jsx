@@ -1,19 +1,27 @@
 const React = require('react');
 
-// const Examples = React.createClass({
-//     render: function () {
-//         return (
-//             <h3>Examples Component</h3>
-//         )
-//     }
-// });
+const {Link} = require('react-router');
 
 // functional refactoring
 const Examples = (props) => {
     return (
         <div>
-            <h3>Examples</h3>
-            <p>Copyright None ;)</p>
+            <h1 className="text-center">Examples</h1>
+            <p>Here are a few example locations to try out:</p>
+            <ol>
+                <li>
+                    <Link to='/?location=Delhi'>Delhi</Link>
+                </li>
+                <li>
+                    <Link to='/?location=Goa'>Goa</Link>
+                </li>
+                <li>
+                    <Link to='/?location=Rourkela'>Rourkela</Link>
+                </li>
+                <li>
+                    <Link to='/?location=Bhilai'>Bhilai</Link>
+                </li>
+            </ol>
         </div>
     );
 };

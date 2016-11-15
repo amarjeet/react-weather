@@ -2,22 +2,15 @@ const React = require('react');
 
 const Nav = require('Nav');
 
-// const Main = React.createClass({
-//     render: function () {
-//         return (
-//             <div>
-//                 <Nav/>
-//                 {this.props.children}
-//             </div>
-//         );
-//     }
-// });
-
 const Main = (props) => {
     return (
         <div>
             <Nav/>
-            {props.children}
+            <div className="row">
+                <div className="medium-6 large-4 small-centered columns">
+                    {props.children}
+                </div>
+            </div>
         </div>
     );
 };

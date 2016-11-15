@@ -26427,23 +26427,20 @@
 	
 	var Nav = __webpack_require__(237);
 	
-	// const Main = React.createClass({
-	//     render: function () {
-	//         return (
-	//             <div>
-	//                 <Nav/>
-	//                 {this.props.children}
-	//             </div>
-	//         );
-	//     }
-	// });
-	
 	var Main = function Main(props) {
 	    return React.createElement(
 	        'div',
 	        null,
 	        React.createElement(Nav, null),
-	        props.children
+	        React.createElement(
+	            'div',
+	            { className: 'row' },
+	            React.createElement(
+	                'div',
+	                { className: 'medium-6 large-4 small-centered columns' },
+	                props.children
+	            )
+	        )
 	    );
 	};
 	
@@ -28240,28 +28237,65 @@
 	
 	var React = __webpack_require__(10);
 	
-	// const Examples = React.createClass({
-	//     render: function () {
-	//         return (
-	//             <h3>Examples Component</h3>
-	//         )
-	//     }
-	// });
+	var _require = __webpack_require__(181),
+	    Link = _require.Link;
 	
 	// functional refactoring
+	
+	
 	var Examples = function Examples(props) {
 	    return React.createElement(
 	        'div',
 	        null,
 	        React.createElement(
-	            'h3',
-	            null,
+	            'h1',
+	            { className: 'text-center' },
 	            'Examples'
 	        ),
 	        React.createElement(
 	            'p',
 	            null,
-	            'Copyright None ;)'
+	            'Here are a few example locations to try out:'
+	        ),
+	        React.createElement(
+	            'ol',
+	            null,
+	            React.createElement(
+	                'li',
+	                null,
+	                React.createElement(
+	                    Link,
+	                    { to: '/?location=Delhi' },
+	                    'Delhi'
+	                )
+	            ),
+	            React.createElement(
+	                'li',
+	                null,
+	                React.createElement(
+	                    Link,
+	                    { to: '/?location=Goa' },
+	                    'Goa'
+	                )
+	            ),
+	            React.createElement(
+	                'li',
+	                null,
+	                React.createElement(
+	                    Link,
+	                    { to: '/?location=Rourkela' },
+	                    'Rourkela'
+	                )
+	            ),
+	            React.createElement(
+	                'li',
+	                null,
+	                React.createElement(
+	                    Link,
+	                    { to: '/?location=Bhilai' },
+	                    'Bhilai'
+	                )
+	            )
 	        )
 	    );
 	};
