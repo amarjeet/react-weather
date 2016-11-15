@@ -26645,7 +26645,7 @@
 	                React.createElement('input', { type: 'text', ref: 'location' }),
 	                React.createElement(
 	                    'button',
-	                    null,
+	                    { className: 'button' },
 	                    'Get Weather'
 	                )
 	            )
@@ -28207,7 +28207,7 @@
 /* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	var React = __webpack_require__(10);
 	
@@ -28221,9 +28221,54 @@
 	
 	var About = function About(props) {
 	    return React.createElement(
-	        'h3',
+	        "div",
 	        null,
-	        'About Component'
+	        React.createElement(
+	            "h1",
+	            { className: "text-center" },
+	            "About"
+	        ),
+	        React.createElement(
+	            "p",
+	            null,
+	            "Weather example application in React. Based on Udemy course."
+	        ),
+	        React.createElement(
+	            "p",
+	            null,
+	            "A few tools used were:"
+	        ),
+	        React.createElement(
+	            "ul",
+	            null,
+	            React.createElement(
+	                "li",
+	                null,
+	                React.createElement(
+	                    "a",
+	                    { href: "https://facebook.github.io/react", target: "_blank" },
+	                    "React"
+	                )
+	            ),
+	            React.createElement(
+	                "li",
+	                null,
+	                React.createElement(
+	                    "a",
+	                    { href: "https://www.heroku.com", target: "_blank" },
+	                    "Heroku"
+	                )
+	            ),
+	            React.createElement(
+	                "li",
+	                null,
+	                React.createElement(
+	                    "a",
+	                    { href: "http://openweathermap.org", target: "_blank" },
+	                    "Open Weather Map"
+	                )
+	            )
+	        )
 	    );
 	};
 	
